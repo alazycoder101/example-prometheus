@@ -1,10 +1,11 @@
-FROM ruby:2.5.1
+FROM ruby:2.7.4-slim
 
 RUN dpkg --configure -a
 
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
   build-essential \
-  sqlite3
+  sqlite3 \
+  libsqlite3-dev
 
 RUN mkdir -p /app
 WORKDIR /app
